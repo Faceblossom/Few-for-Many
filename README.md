@@ -16,6 +16,7 @@ If you find our works are helpful for your research, please cite the following p
   booktitle={Proceedings of the International Conference on Parallel Problem Solving from Nature (PPSN)},
   pages={68--82},
   year={2024},
+  organization={Springer}
 }
 @article{geda,
   title={Few for many: Towards efficient and flexible many-objective optimization},
