@@ -61,7 +61,7 @@ def Greedy(values, k, m, scalar):
 
 if __name__ == '__main__':
     
-    problem = 4 # 1: DC-MaTS; 2: GMOTS; 3: MCut; 4: MCuv
+    problem = 1 # 1: DC-MaTS; 2: GMOTS; 3: MCut; 4: MCuv
     scalar = 1 # scalarization method 1: linear; 2: Tchebycheff 
     
     if problem == 1 or problem == 2:
@@ -80,8 +80,8 @@ if __name__ == '__main__':
         A, n = MCut_Init(m)
         xl = 0 
         xu = 2 # binary encoding
-        ps = 4*m
-        ic = 4*m
+        ps = 10*m
+        ic = 10*m
         
     if problem == 4:
         k = 5
@@ -90,8 +90,8 @@ if __name__ == '__main__':
         values, setlist, num = MCov_Init(m)
         xl = 0
         xu = num # real encoding
-        ps = 4*m
-        ic = 4*m
+        ps = 10*m
+        ic = 10*m
       
     runtime = time()
     
@@ -158,6 +158,7 @@ if __name__ == '__main__':
     soi_t = SOI_T(gbest_o, m)
     runtime = time() - runtime    
     print("GEDA: SOI_L is %.2e, SOI_T is %.2e, Runtime is %.2e" % (soi_l, soi_t, runtime))
+
 
 
 
