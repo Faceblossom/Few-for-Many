@@ -58,7 +58,7 @@ def Greedy(values, k, m, scalar):
 
 if __name__ == '__main__':
     
-    problem = 2 # 1: DC-MaTS; 2: GMOTS
+    problem = 1 # 1: DC-MaTS; 2: GMOTS
     scalar = 1 # scalarization method 1: linear; 2: Tchebycheff 
 
     pins = 1 # problem instance
@@ -67,8 +67,8 @@ if __name__ == '__main__':
     n = 75 # variable dimension
     xl = 0 # lower bound of variable
     xu = 1 # upper bound of variable
-    ps = 20*m # population size
-    ic = 20*m # iteration count 
+    ps = 10*m # population size
+    ic = 10*m # iteration count 
     alpha, beta = 1, 1 #parameters
       
     runtime = time()
@@ -186,6 +186,7 @@ if __name__ == '__main__':
     soi_t = SOI_T(gbest_o, m)
     runtime = time() - runtime    
     print("CluSO: SOI_L is %.2e, SOI_T is %.2e, Runtime is %.2e" % (soi_l, soi_t, runtime))
+
 
 
 
