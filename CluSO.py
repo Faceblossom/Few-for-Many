@@ -27,35 +27,6 @@ def SOI_T(values, m):
         return soi / m
 
 
-def Greedy(values, k, m, scalar):
-    
-    s = np.size(values, 0)
-
-    soi_init = []
-    for i in range(s):
-        if scalar == 1: soi_init.append(SOI_L(values[i], m))
-        if scalar == 2: soi_init.append(SOI_T(values[i], m))
-    cbest_soi = min(soi_init)
-    cbest_idx = [soi_init.index(cbest_soi)]
-
-    for l in range(1, k):
-        delta = [-1] * s
-        for i in range(s):
-            if i in cbest_idx: continue
-            cbest_idx.append(i)
-            values_cidx = np.array(values[cbest_idx])
-            if scalar == 1: delta[i] = cbest_soi - SOI_L(values_cidx, m)
-            if scalar == 2: delta[i] = cbest_soi - SOI_T(values_cidx, m)
-            del cbest_idx[-1]
-        delta = np.array(delta)
-        delta_max = np.max(delta)
-        delta_max_index = np.where(delta == delta_max)[0][0]
-        cbest_idx.append(delta_max_index)
-        cbest_soi -= delta_max
-        
-    return cbest_idx, cbest_soi
-
-
 if __name__ == '__main__':
     
     problem = 1 # 1: DC-MaTS; 2: GMOTS
@@ -186,6 +157,7 @@ if __name__ == '__main__':
     soi_t = SOI_T(gbest_o, m)
     runtime = time() - runtime    
     print("CluSO: SOI_L is %.2e, SOI_T is %.2e, Runtime is %.2e" % (soi_l, soi_t, runtime))
+
 
 
 
